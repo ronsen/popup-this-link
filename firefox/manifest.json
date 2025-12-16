@@ -24,8 +24,12 @@
 	],
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "@linkpop"
-		},
-		"data_collection_permissions": {}
+			"id": "@ptl",
+			"data_collection_permissions": {
+				"required": [
+					"browsingActivity"
+				]
+			}
+		}
 	}
 }

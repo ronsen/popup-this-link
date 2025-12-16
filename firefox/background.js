@@ -1,35 +1,29 @@
-browser.contextMenus.create({
-	id: "linkpop",
-	title: "LinkPop",
-	contexts: ["link"]
+browser.runtime.onInstalled.addListener(() => {
+	browser.contextMenus.create({
+		id: 'ptl',
+		title: 'Popup This Link',
+		contexts: ['link']
+	});
 });
 
-function contextMenuAction(info) {
-	popupThis(new URL(info.linkUrl));
-}
+browser.contextMenus.onClicked.addListener((info) => {
+	const url = new URL(info.linkUrl);
+	popupThis(url.href);
+});
 
-browser.contextMenus.onClicked.addListener(contextMenuAction);
-
-function openAction() {
-	const activeTab = browser.tabs.query({
-		active: true, currentWindow: true
-	});
-
-	activeTab.then((tabs) => {
-		popupThis(new URL(tabs[0].url));
-	});
-}
-
-browser.browserAction.onClicked.addListener(openAction);
+browser.action.onClicked.addListener((tab) => {
+	if (tab?.url) {
+		popupThis(new URL(tab.url).href);
+	}
+});
 
 function popupThis(url) {
-	let popupUrl = url.href;
-
-	chrome.windows.create({
+	browser.windows.create({
 		height: 860,
 		width: 520,
 		state: "normal",
 		type: "popup",
-		url: popupUrl
+		url
 	});
 }
+

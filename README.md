@@ -1,3 +1,3 @@
-## LinkPop
+## popup-this-link
 
-Pop any link.
+Popup any link.

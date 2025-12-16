@@ -1,18 +1,31 @@
 {
-	"manifest_version": 2,
-	"name": "LinkPop",
+	"manifest_version": 3,
+	"name": "Popup This Link",
 	"version": "1.0.0",
-	"description": "Pop up any link.",
-	"permissions": ["contextMenus", "tabs"],
+	"description": "Popup any link.",
+	"permissions": [
+		"contextMenus",
+		"tabs",
+		"activeTab"
+	],
 	"background": {
 		"scripts": [
 			"background.js"
 		]
 	},
-	"browser_action": {
+	"action": {
 		"default_icon": {
 			"16": "icons/icon-16x16.png",
 			"32": "icons/icon-32x32.png"
 		}
+	},
+	"host_permissions": [
+		"<all_urls>"
+	],
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "@linkpop"
+		},
+		"data_collection_permissions": {}
 	}
 }

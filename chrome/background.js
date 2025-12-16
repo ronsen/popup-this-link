@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.contextMenus.create({
-		id: 'linkpop',
-		title: 'Link Pop',
+		id: 'ptl',
+		title: 'Popup This Link',
 		type: 'normal',
 		contexts: ['link']
 	});

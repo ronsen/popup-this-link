@@ -1,8 +1,8 @@
 {
 	"manifest_version": 3,
-	"name": "LinkPop",
+	"name": "Popup This Link",
 	"version": "1.0.0",
-	"description": "Pop up any link.",
+	"description": "Popup any link.",
 	"permissions": ["contextMenus"],
 	"background": {
 		"service_worker": "background.js",
